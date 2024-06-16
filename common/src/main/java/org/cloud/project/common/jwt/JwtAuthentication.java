@@ -1,7 +1,7 @@
-package org.cloud.project.user.jwt;
+package org.cloud.project.common.jwt;
 
 import lombok.AllArgsConstructor;
-import org.cloud.project.user.role.UserRole;
+import org.cloud.project.common.role.UserRole;
 import org.springframework.security.core.GrantedAuthority;
 
 import java.util.ArrayList;

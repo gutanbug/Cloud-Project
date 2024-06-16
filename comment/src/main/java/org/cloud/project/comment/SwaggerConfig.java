@@ -1,4 +1,4 @@
-package org.cloud.project.post;
+package org.cloud.project.comment;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn;
@@ -12,9 +12,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @OpenAPIDefinition(
         info = @io.swagger.v3.oas.annotations.info.Info(
-                title = "User API",
+                title = "Comment API",
                 version = "v1.0.0",
-                description = "User API"
+                description = "Comment API"
         ),
         servers = {
                 @io.swagger.v3.oas.annotations.servers.Server(url = "/", description = "Local Server")
@@ -35,8 +35,8 @@ public class SwaggerConfig {
     public OpenAPI myOpenAPi() {
         return new OpenAPI()
                 .info(new io.swagger.v3.oas.models.info.Info()
-                        .title("User API")
+                        .title("Comment API")
                         .version(API_VERSION)
-                        .description("User API"));
+                        .description("Comment API"));
     }
 }

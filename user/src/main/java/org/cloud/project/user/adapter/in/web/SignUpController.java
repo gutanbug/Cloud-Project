@@ -1,5 +1,6 @@
-package org.cloud.project.user.adapter;
+package org.cloud.project.user.adapter.in.web;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.cloud.project.common.WebAdapter;
 import org.cloud.project.user.application.port.in.SignUpCommand;
@@ -14,16 +15,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(path = "/user")
-
+@Tag(name = "회원가입 컨트롤러", description = "회원가입 관련 컨트롤러")
 public class SignUpController {
 
     private final SignUpUseCase signUpUseCase;
 
+    /**
+     * 회원가입
+     */
     @PostMapping(path = "/signup")
     User signUp(@RequestBody RequestSignup request) {
         SignUpCommand command = SignUpCommand.builder()
-                .name(request.getName())
                 .formId(request.getFormId())
+                .name(request.getName())
                 .password(request.getPassword())
                 .build();
 

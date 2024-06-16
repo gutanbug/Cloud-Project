@@ -12,6 +12,7 @@ public interface PostPort {
     );
 
     void updatePost(
+            Post.PostId id,
             Post.PostTitle title,
             Post.PostBody body
     );

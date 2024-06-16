@@ -1,4 +1,5 @@
-FROM ubuntu:latest
-LABEL authors="cha_hammin"
-
-ENTRYPOINT ["top", "-b"]
+FROM openjdk:17
+EXPOSE 8080
+ARG JAR_FILE
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]

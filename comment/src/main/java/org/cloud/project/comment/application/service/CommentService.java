@@ -1,6 +1,7 @@
 package org.cloud.project.comment.application.service;
 
 import lombok.RequiredArgsConstructor;
+import org.cloud.project.comment.adapter.out.persistence.CommentEntity;
 import org.cloud.project.comment.application.port.in.CommentUseCase;
 import org.cloud.project.comment.application.port.in.CreateCommentCommand;
 import org.cloud.project.comment.application.port.out.CommentPort;
@@ -18,10 +19,10 @@ public class CommentService implements CommentUseCase {
     @Override
     public Long createComment(CreateCommentCommand command) {
 
-        commentPort.createComment(
+        CommentEntity entity = commentPort.createComment(
                 new Comment.CommentContent(command.getContent()),
                 new Comment.CommentPostId(command.getPostId())
         );
-
+        return entity.getId();
     }
 }

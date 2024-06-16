@@ -1,13 +1,13 @@
-package org.cloud.project.user.role;
+package org.cloud.project.common.role;
 
 import lombok.Getter;
-import org.cloud.project.user.jwt.AppAuthentication;
+import org.cloud.project.common.jwt.AppAuthentication;
 
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static org.cloud.project.user.role.UserAuthNames.*;
+import static org.cloud.project.common.role.UserAuthNames.*;
 
 @Getter
 public enum UserRole {

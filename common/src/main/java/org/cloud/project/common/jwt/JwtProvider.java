@@ -1,9 +1,9 @@
-package org.cloud.project.user.jwt;
+package org.cloud.project.common.jwt;
 
 import io.jsonwebtoken.*;
 import lombok.RequiredArgsConstructor;
-import org.cloud.project.user.adapter.out.persistence.UserEntity;
-import org.cloud.project.user.role.UserRole;
+import org.cloud.project.common.entity.UserEntity;
+import org.cloud.project.common.role.UserRole;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 

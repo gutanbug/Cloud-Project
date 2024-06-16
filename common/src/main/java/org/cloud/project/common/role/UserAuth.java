@@ -1,7 +1,7 @@
-package org.cloud.project.user.role;
+package org.cloud.project.common.role;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
-import org.cloud.project.user.jwt.JwtProvider;
+import org.cloud.project.common.jwt.JwtProvider;
 import org.springframework.security.access.annotation.Secured;
 
 import java.lang.annotation.*;

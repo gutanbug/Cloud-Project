@@ -1,4 +1,4 @@
-package org.cloud.project.user.adapter.out.persistence;
+package org.cloud.project.common.entity;
 
 import lombok.AccessLevel;
 import lombok.Getter;

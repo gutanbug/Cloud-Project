@@ -1,6 +1,7 @@
-package org.cloud.project.common.jwt;
+package org.cloud.project.common.config;
 
 import lombok.RequiredArgsConstructor;
+import org.cloud.project.common.jwt.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;

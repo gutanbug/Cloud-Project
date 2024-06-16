@@ -1,0 +1,22 @@
+spring:
+  security:
+    user:
+      name: user
+      password: 1234
+  application:
+    name: discovery-service
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+app:
+  auth:
+    jwt:
+      access-expiration: P3D
+      refresh-expiration: P15D
+      secret-key: asldfkjaasnasdklfjalekjfslakcnvlaskejlfisajdkfalseifn
+
+server:
+  port: 8761

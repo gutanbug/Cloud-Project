@@ -1,0 +1,6 @@
+app:
+  auth:
+    jwt:
+      access-expiration: P3D
+      refresh-expiration: P15D
+      secret-key: asldfkjaasnasdklfjalekjfslakcnvlaskejlfisajdkfalseifn

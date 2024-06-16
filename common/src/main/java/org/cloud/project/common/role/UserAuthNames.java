@@ -1,4 +1,4 @@
-package org.cloud.project.user.role;
+package org.cloud.project.common.role;
 
 public class UserAuthNames {
     public static final String ROLE_ADMIN = "ROLE_ADMIN";

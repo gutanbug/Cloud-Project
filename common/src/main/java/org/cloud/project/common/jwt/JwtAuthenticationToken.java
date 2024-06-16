@@ -1,4 +1,4 @@
-package org.cloud.project.user.jwt;
+package org.cloud.project.common.jwt;
 
 import lombok.Builder;
 import lombok.Getter;

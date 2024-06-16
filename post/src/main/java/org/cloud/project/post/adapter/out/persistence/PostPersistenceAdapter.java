@@ -17,8 +17,8 @@ public class PostPersistenceAdapter implements PostPort {
     }
 
     @Override
-    public void updatePost(Post.PostTitle title, Post.PostBody body) {
-        PostEntity entity = repository.findByTitle(title.getTitleValue()).orElseThrow(() -> new IllegalArgumentException("게시글이 존재하지 않습니다."));
+    public void updatePost(Post.PostId id, Post.PostTitle title, Post.PostBody body) {
+        PostEntity entity = repository.findById(id.getIdValue()).orElseThrow(() -> new IllegalArgumentException("게시글이 존재하지 않습니다."));
         entity.update(title.getTitleValue(), body.getBodyValue());
     }
 }
