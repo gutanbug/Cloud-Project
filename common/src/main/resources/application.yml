@@ -1,22 +1,11 @@
 spring:
   security:
     user:
-      name: user
-      password: 1234
-  application:
-    name: discovery-service
-
-eureka:
-  client:
-    register-with-eureka: false
-    fetch-registry: false
-
+      name: ${SPRING_SECURITY_USER_NAME:user}
+      password: ${SPRING_SECURITY_USER_PASSWORD:password}
 app:
   auth:
     jwt:
-      access-expiration: P3D
-      refresh-expiration: P15D
-      secret-key: asldfkjaasnasdklfjalekjfslakcnvlaskejlfisajdkfalseifn
-
-server:
-  port: 8761
+      access-expiration: ${APP_AUTH_JWT_ACCESS_EXPIRATION:P3D}
+      refresh-expiration: ${APP_AUTH_JWT_REFRESH_EXPIRATION:P15D}
+      secret-key: ${APP_AUTH_JWT_SECRET_KEY:asldfkjaasnasdklfjalekjfslakcnvlaskejlfisajdkfalseifn}

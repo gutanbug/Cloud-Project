@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: comment-service-config
+data:
+  APP_AUTH_JWT_ACCESS_EXPIRATION: P3D
+  APP_AUTH_JWT_REFRESH_EXPIRATION: P15D
+  APP_AUTH_JWT_SECRET_KEY: asldfkjaasnasdklfjalekjfslakcnvlaskejlfisajdkfalseifn

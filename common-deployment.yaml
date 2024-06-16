@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: common-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: common-service
+  template:
+    metadata:
+      labels:
+        app: common-service
+    spec:
+      containers:
+      - name: common-service
+        image: gutanbug53/cloudproject-common:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_DATASOURCE_URL
+          value: jdbc:mysql://mysql:3306/cloud-practice?useSSL-false&allowPublicKeyRetrieval=true
+        - name: SPRING_DATASOURCE_USERNAME
+          value: root
+        - name: SPRING_DATASOURCE_PASSWORD
+          value: rnxksqjrm1!
+        - name: SPRING_DATASOURCE_DRIVER_CLASS_NAME
+          value: com.mysql.cj.jdbc.Driver
+        - name: SPRING_JPA_HIBERNATE_DDL_AUTO
+          value: update
+        - name: SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT
+          value: org.hibernate.dialect.MySQL8Dialect
+        envFrom:
+        - configMapRef:
+            name: common-service-config
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: common-service
+spec:
+  selector:
+    app: common-service
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080

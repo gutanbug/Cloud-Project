@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:8.0.33
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: rnxksqjrm1!
+            - name: MYSQL_DATABASE
+              value: cloud-practice
+            - name: MYSQL_USER
+              value: gutanbug53
+            - name: MYSQL_PASSWORd
+              value: rnxksqjrm1!
+          ports:
+            - containerPort: 33060
+              name: mysql
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+spec:
+  selector:
+    app: mysql
+  ports:
+    - port: 33060
+      targetPort: 3306
+  clusterIP: None

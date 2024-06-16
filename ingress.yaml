@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cloudproject-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: localhost
+      http:
+        paths:
+          - path: /user
+            pathType: Prefix
+            backend:
+              service:
+                name: user-service
+                port:
+                  number: 8081
+          - path: /post
+            pathType: Prefix
+            backend:
+              service:
+                name: post-service
+                port:
+                  number: 8082
+          - path: /comment
+            pathType: Prefix
+            backend:
+              service:
+                name: comment-service
+                port:
+                  number: 8083

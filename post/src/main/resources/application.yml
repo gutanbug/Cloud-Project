@@ -1,6 +1,6 @@
 app:
   auth:
     jwt:
-      access-expiration: P3D
-      refresh-expiration: P15D
-      secret-key: asldfkjaasnasdklfjalekjfslakcnvlaskejlfisajdkfalseifn
+      access-expiration: ${APP_AUTH_JWT_ACCESS_EXPIRATION:P3D}
+      refresh-expiration: ${APP_AUTH_JWT_REFRESH_EXPIRATION:P15D}
+      secret-key: ${APP_AUTH_JWT_SECRET_KEY:asldfkjaasnasdklfjalekjfslakcnvlaskejlfisajdkfalseifn}

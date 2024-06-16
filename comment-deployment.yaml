@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: comment-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: comment-service
+  template:
+    metadata:
+      labels:
+        app: comment-service
+    spec:
+      containers:
+      - name: comment-service
+        image: gutanbug53/cloudproject-comment:latest
+        ports:
+        - containerPort: 8080
+        envFrom:
+        - configMapRef:
+            name: comment-service-config
+        env:
+        - name: SPRING_DATASOURCE_URL
+          value: jdbc:mysql://mysql:3306/cloud-practice?useSSL=false&allowPublicKeyRetrieval=true
+        - name: SPRING_DATASOURCE_USERNAME
+          value: root
+        - name: SPRING_DATASOURCE_PASSWORD
+          value: rnxksqjrm1!
+        - name: SPRING_DATASOURCE_DRIVER_CLASS_NAME
+          value: com.mysql.cj.jdbc.Driver
+        - name: SPRING_JPA_HIBERNATE_DDL_AUTO
+          value: update
+        - name: SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT
+          value: org.hibernate.dialect.MySQL8Dialect
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: comment-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: comment-service
+  ports:
+    - protocol: TCP
+      port: 8083
+      targetPort: 8080
